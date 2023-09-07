@@ -4,10 +4,22 @@ class Cat extends Owner {
     private String name;
     private Integer age;
 
-    public Cat(String name, Integer age, String ownerName) {
+    private Cat(String name, Integer age, String ownerName) {
         super(ownerName);
         this.name = name;
         this.age = age;
+    }
+
+    private Cat(String name, Integer age) {
+        this("", null, null);
+    }
+
+    private Cat(String name) {
+        this("", null);
+    }
+
+    public Cat() {
+        this("");
     }
 
     public String getName() {

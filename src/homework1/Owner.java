@@ -7,6 +7,10 @@ public class Owner {
         this.ownerName = name;
     }
 
+    public Owner() {
+        this(null);
+    }
+
     public String getOwnerName() {
         return ownerName;
     }

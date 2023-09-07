@@ -1,17 +1,17 @@
 package homework2;
 
-public class Main {
+public class Main implements Constants {
     public static void main(String[] args) {
-        Cat cat = new Cat(null, null);
-        Owner own = new Owner();
+        Cat cat = new Cat();
 
-        cat.setName(Constants.CAT_NAME);
-        cat.setAge(Constants.CAT_AGE);
-        own.setOwnerName("Petr");
+        cat.setName(CAT_NAME);
+        cat.setAge(CAT_AGE);
+        cat.setOwnerName(OWNER_NAME);
 
         cat.greet();
         cat.makeSound();
-        own.makeSound();
-        own.callAnimal();
+        cat.makeStep();
+        cat.careAnimal();
+        cat.callAnimal();
     }
 }

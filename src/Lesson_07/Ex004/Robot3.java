@@ -7,38 +7,43 @@ public class Robot3 {
     enum State {
         On, Off
     }
-
+//    создаем поля для того, чтобы нельзя было создать двух роботов с одним именем
     private static int defaultIndex;
     private static ArrayList<String> names;
 
+//    в статическом методе можно инициализировать поля, списки
     static {
         defaultIndex = 1;
         names = new ArrayList<String>();
     }
 
-    /** Уровень робота */
+    /**
+     * Уровень робота
+     */
     private int level;
 
-    /** Имя робота */
+    /**
+     * Имя робота
+     */
     private String name;
 
     private State state;
 
     /**
      * Создание робота
-     * 
+     *
      * @param name  Имя робота !Не должно начинаться с цифры
      * @param level Уровень робота
      */
     private Robot3(String name, int level) {
         System.out.println(Character.isDigit(name.charAt(0)));
+//        если поле, заданное пользователем пустое
         if ((name.isEmpty()
+//                первый символ - цифра
                 || Character.isDigit(name.charAt(0)))
-                || Robot3.names.indexOf(name) != -1)
-
-        {
-            this.name =
-             String.format("DefaultName_%d", defaultIndex++);
+//                имя робота было задано ранее
+                || Robot3.names.indexOf(name) != -1) {
+            this.name = String.format("DefaultName_%d", defaultIndex++);
         } else {
             this.name = name;
         }
@@ -120,37 +125,51 @@ public class Robot3 {
         return this.name;
     }
 
-    /** Загрузка BIOS */
+    /**
+     * Загрузка BIOS
+     */
     private void startBIOS() {
         System.out.println("Start BIOS...");
     }
 
-    /** Загрузка OS */
+    /**
+     * Загрузка OS
+     */
     private void startOS() {
         System.out.println("Start OS...");
     }
 
-    /** Приветствие */
+    /**
+     * Приветствие
+     */
     private void sayHi() {
         System.out.println("Hello world...");
     }
 
-    /** Выгрузка BIOS */
+    /**
+     * Выгрузка BIOS
+     */
     private void stopBIOS() {
         System.out.println("Stop BIOS...");
     }
 
-    /** Выгрузка OS */
+    /**
+     * Выгрузка OS
+     */
     private void stopOS() {
         System.out.println("Stop OS...");
     }
 
-    /** Прощание */
+    /**
+     * Прощание
+     */
     private void sayBye() {
         System.out.println("Bye...");
     }
 
-    /** Работа */
+    /**
+     * Работа
+     */
     public void work() {
         if (this.state == State.On) {
             System.out.println("Working...");

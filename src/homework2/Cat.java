@@ -1,8 +1,6 @@
 package homework2;
 
-import java.net.Inet4Address;
-
-class Cat extends Owner implements SoundMarker {
+class Cat extends Owner implements SoundMarker, GoingMarker, CareAnimal {
     private String name;
     private Integer age;
 
@@ -13,8 +11,15 @@ class Cat extends Owner implements SoundMarker {
     }
 
     public Cat(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+        this("", null, null);
+    }
+
+    public Cat(String name) {
+        this("", null);
+    }
+
+    public Cat() {
+        this("");
     }
 
     public String getName() {
@@ -34,10 +39,30 @@ class Cat extends Owner implements SoundMarker {
     }
 
     public void greet() {
-        System.out.println("Meow! My name is " + name + ". I am " + age + " years old. My owner is " + getOwnerName() + ".");
+        if (getOwnerName() != null){
+            System.out.println("Мяу! Меня зовут " + name + ". Мне " + age + " года(лет). Мой владелец " + getOwnerName() + ".");
+        } else {
+            System.out.println("Вы не указали имя владельца");
+        }
     }
+
     @Override
     public void makeSound() {
-        System.out.println(name + " meows.");
+        System.out.println(name + " говорит Мяу!" + "\n" + getOwnerName() + " зовет " + name + "а.");
+    }
+
+    @Override
+    public void callAnimal() {
+        SoundMarker.super.callAnimal();
+    }
+
+    @Override
+    public void makeStep() {
+        System.out.println(name + " идет в сторону " + getOwnerName() + "а.");
+    }
+
+    @Override
+    public void careAnimal() {
+        System.out.println(getOwnerName() + " гладит " + name + "а.");
     }
 }

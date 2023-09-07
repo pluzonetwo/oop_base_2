@@ -1,6 +1,6 @@
 package homework2;
 
-public class Owner implements SoundMarker {
+public class Owner {
     private String ownerName;
 
     public Owner(String name) {
@@ -18,10 +18,4 @@ public class Owner implements SoundMarker {
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
-
-    @Override
-    public void makeSound() {
-        System.out.println(getOwnerName() + " calls the animal.");
-    }
 }
-
