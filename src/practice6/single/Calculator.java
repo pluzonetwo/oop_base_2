@@ -21,3 +21,12 @@ class ResultDisplay {
         System.out.println("Result: " + result);
     }
 }
+
+class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        ResultDisplay display = new ResultDisplay();
+
+        display.display(calculator.add(5, 5));
+    }
+}

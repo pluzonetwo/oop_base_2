@@ -1,12 +1,20 @@
 package homework7;
 
-public class Complex {
+class Complex extends ComplexFactory{
+    private static Complex instance;
     private double real;
     private double imaginary;
 
-    public Complex(double real, double imaginary) {
+    private Complex(double real, double imaginary) {
         this.real = real;
         this.imaginary = imaginary;
+    }
+
+    public static Complex getInstance(double real, double imaginary) {
+        if (instance == null) {
+            instance = new Complex(real, imaginary);
+        }
+        return instance;
     }
 
     public double getReal() {
@@ -44,6 +52,6 @@ public class Complex {
 
     @Override
     public String toString() {
-        return "Сумма: " + getReal() + " + " + getImaginary() + "i";
+        return "Результат: " + getReal() + " + " + getImaginary() + "i";
     }
 }

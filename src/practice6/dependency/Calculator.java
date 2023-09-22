@@ -35,3 +35,12 @@ class Calculator {
         return operation.execute(a, b);
     }
 }
+
+class Main {
+    public static void main(String[] args) {
+        Addition addition = new Addition();
+        Calculator calculator = new Calculator();
+
+        System.out.println(calculator.performOperation(addition, 5, 5));
+    }
+}
